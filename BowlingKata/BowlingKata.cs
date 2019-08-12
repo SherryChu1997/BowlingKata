@@ -24,14 +24,15 @@ namespace BowlingKata
             Assert.AreEqual(0, g.Totalscore());
         }
 
-        //[TestMethod]
-        //public void testOneSpare()
-        //{
-        //    g.roll(2);
-        //    g.roll(8);  // Spare happened!
-        //    g.roll(5);
-        //    RollMany();
-        //}
+        [TestMethod]
+        public void testOneSpare()
+        {
+            g.roll(2);
+            g.roll(8);  // Spare happened!
+            g.roll(1);
+            RollMany(5, 0);
+            Assert.AreEqual(12, g.Totalscore());
+        }
 
         private void RollMany(int times, int pins)
         {
