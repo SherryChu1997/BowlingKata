@@ -23,7 +23,12 @@ namespace BowlingKata
             int index = 0;
             for (int frame = 0; frame < 10; frame++)
             {
-                if (rolls[index] + rolls[index + 1] == 10)//Spare
+                if (rolls[index] == 10)//Strike
+                {
+                    score = score + 10 + rolls[index + 1] + rolls[index + 2];
+                    index++;
+                }
+                else if (rolls[index] + rolls[index + 1] == 10)//Spare
                 {
                     score = score + 10 + rolls[index + 2];
                     index += 2;
