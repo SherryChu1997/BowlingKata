@@ -34,6 +34,16 @@ namespace BowlingKata
             Assert.AreEqual(12, g.Totalscore());
         }
 
+        [TestMethod]
+        public void testOneStrike()
+        {
+            g.roll(10);
+            g.roll(3);
+            g.roll(4);
+            RollMany(16, 0);
+            Assert.AreEqual(24, g.Totalscore());
+        }
+
         private void RollMany(int times, int pins)
         {
             for (int i = 1; i <= times; i++)
