@@ -10,7 +10,6 @@ namespace BowlingKata
     {
         private int rollCount = 0;
         private int[] rolls = new int[21];//第10局有機會出現第21球
-        private int score = 0;
 
         public void roll(int pins)
         {
@@ -20,9 +19,20 @@ namespace BowlingKata
 
         public int Totalscore()
         {
-            for (int i = 0; i < rolls.Length; i++)
+            int score = 0;
+            int index = 0;
+            for (int frame = 0; frame < 10; frame++)
             {
-                score += rolls[i];
+                if (rolls[index] + rolls[index + 1] == 10)//Spare
+                {
+                    score = score + 10 + rolls[index + 2];
+                    index += 2;
+                }
+                else
+                {
+                    score += rolls[index] + rolls[index + 1];
+                    index += 2;
+                }
             }
             return score;
         }
