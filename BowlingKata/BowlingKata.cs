@@ -8,26 +8,28 @@ namespace BowlingKata
     [TestClass]
     public class Bowling
     {
+        internal Game g = new Game();
+
         [TestMethod]
         public void testAllOne()
         {
-            Game g = new Game();
-            for (int i = 1; i <= 20; i++)
-            {
-                g.roll(1);
-            }
+            RollMany(20, 1);
             Assert.AreEqual(20, g.totalscore());
         }
 
         [TestMethod]
         public void testAllZero()
         {
-            Game g = new Game();
-            for (int i = 1; i <= 20; i++)
-            {
-                g.roll(0);
-            }
+            RollMany(20, 0);
             Assert.AreEqual(0, g.totalscore());
+        }
+
+        private void RollMany(int times, int pins)
+        {
+            for (int i = 1; i <= times; i++)
+            {
+                g.roll(pins);
+            }
         }
     }
 }
